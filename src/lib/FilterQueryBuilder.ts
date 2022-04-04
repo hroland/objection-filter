@@ -84,7 +84,7 @@ export default class FilterQueryBuilder<
   }
 
   build(params: FilterQueryParams = {}): QueryBuilder<M> {
-    const { fields, limit, offset, order, eager } = params;
+    const { fields, limit, offset, order, eager } = Object.assign({}, params);
 
     applyWhere(params.where, this._builder, this.utils);
     applyRequire(params.require, this._builder, this.utils);
